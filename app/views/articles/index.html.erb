@@ -1,1 +1,12 @@
-<%= link_to "New Article", new_article_path %>
+<%= link_to "New Article", new_article_path, class: 'btn btn-primary btn-lg', id: 'new-article-btn' %>
+
+<% @articles.each do |article| %>
+<div class="card mt-2">
+  <div class="card-body">
+    <h5><%= link_to article.title, article_path(article) %></h5>
+    <p>
+      <%= truncate(article.body, length: 300) %>
+    </p>
+  </div>
+</div>
+<% end %>
