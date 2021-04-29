@@ -40,6 +40,9 @@ group :development do
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'rspec-rails', '~> 5.0.0'
+  gem 'guard'
+  gem 'guard-rspec', require: false
+  gem 'guard-cucumber'
 end
 
 group :test do
