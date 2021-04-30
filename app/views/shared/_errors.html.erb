@@ -1,5 +1,5 @@
 <% flash.each do |key, message| %>
-  <div class="text-center alert alert-<%= key[/success|info/] ? key : 'danger' %> alert-dismissible fade show">
+  <div class="text-center alert alert-<%= key[/success|info|notice/] ? 'info' : 'danger' %> alert-dismissible fade show">
     <%= message %>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>

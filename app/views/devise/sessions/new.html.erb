@@ -1,26 +1,49 @@
-<h2>Log in</h2>
+<% @title = "Sign in" %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+      <h3 class="text-center">Sign up</h3>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+          <div class="form-group row">
+            <div class="col-sm-3 col-md-2">
+              <%= f.label :email, class: 'col-form-label float-right' %><br />
+            </div>
+            <div class="col-sm-9 col-md-10">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-sm-3 col-md-2">
+              <%= f.label :password, class: 'col-form-label float-right' %>
+            </div>
+            <div class="col-sm-9 col-md-10">
+              <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+              <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %><br />
+            </div>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div class="form-check offset-sm-3 offset-md-2 col-sm-9 col-md-10">
+              <%= f.check_box :remember_me, class: 'form-check-input' %>
+              <%= f.label :remember_me, class: 'form-check-label' %>
+            </div>
+          <% end %>
+
+          <div class="col-sm-12">
+            <%= f.submit "Log in", class: 'btn btn-primary btn-lg float-right' %>
+            <%= render "devise/shared/links" %>
+          </div>
+        <% end %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>
