@@ -1,10 +1,14 @@
+<% @title = "Article - #{@article.title}" %>
+
 <div class="card">
   <div class="card-body">
     <h5 class="card-title"><%= @article.title %></h5>
     <i class="fas fa-calendar"></i> <%= @article.created_at.strftime("%b %d %Y") %>
+    <hr>
     <p class="card-text mt-1">
         <%= @article.body %>
     </p>
-    <a href="#" class="btn btn-primary">Button</a>
+    <%= link_to "Edit Article", edit_article_path(@article), class: "btn btn-primary btn-lg float-right" %>
+    <%= link_to 'Cancel', :articles, class: 'btn btn-outline-secondary btn-lg float-right mr-2' %>
   </div>
 </div>
