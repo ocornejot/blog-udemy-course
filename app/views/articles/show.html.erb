@@ -1,0 +1,10 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title"><%= @article.title %></h5>
+    <i class="fas fa-calendar"></i> <%= @article.created_at.strftime("%b %d %Y") %>
+    <p class="card-text mt-1">
+        <%= @article.body %>
+    </p>
+    <a href="#" class="btn btn-primary">Button</a>
+  </div>
+</div>
